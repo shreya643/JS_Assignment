@@ -66,6 +66,28 @@ tempConvert(34, 109);
 })('cat',5);
 
 
+(function leapYear(year)
+{
+	var step1=year%4;
+	var step2=year%100;
+	var step3=year%400;
+
+	if(step1%2==0)
+	{
+		if(step2%2==0)
+		{
+			if(step3%2==0)
+			{
+				console.log('The year is a Leap Year (It has 366 days).');
+			}
+			else console.log('The year is not a Leap Year (It has 365 days).');
+		}
+		else  console.log('The year is a Leap Year (It has 366 days).');
+	}
+	else console.log('The year is not a Leap Year (It has 365 days).');
+
+})(2019);
+
 (function length(word)
 {
 	var count =1;
@@ -95,18 +117,68 @@ tempConvert(34, 109);
 				div=div+num;
 				if(div==numb)
 				{
-					console.log('perfect number');
+					console.log('Perfect Number');
 				}
-				else console.log('not a perfect number');
+				else console.log('not a Perfect Number');
 			}
 		}
 		i=i+1;
 	}
 })(6);
 
-
-	// (function strongNumber()
-	// {
+function factorial (n) {
 		
+  		if (n == 0 || n == 1){
+    		return 1;
+  		}
+  		else if(n>1){
+  			return n = factorial(n-1) * n;
+  		}
+	} 
 
-	// })();
+	(function strongNumber(num)
+	{
+		var n=num;
+		var check=num;
+		var r=0;
+		while(check!=0)
+		{
+			n=check%10;
+			r=r+parseInt(factorial(n));
+			check=parseInt(check/10);			
+		}
+		if(r==num)
+		{
+			console.log(r + " is a Strong Number.");				
+		}
+
+	})(145);
+
+	function happyNumber(num)
+	{
+		var sum = 0, itr = 0, temp = num;
+    	while(itr != 50 ){
+        	sum = 0;
+        	while(temp != 0){
+            	sum += (temp%10)**2;
+            	temp = (temp-(temp%10))/10;
+        	}
+        	if(sum == 1){
+            	return 1;
+        	}
+        	temp = sum;
+        	itr++;
+        	return 0;
+		}	
+	}	
+	
+(function run()
+{
+	if(happyNumber(19)==1)
+	{
+		console.log('not a Happy Number');
+	}
+})();
+	
+
+
